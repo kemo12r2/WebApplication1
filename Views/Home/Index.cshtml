@@ -1,0 +1,402 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Home Page";
+    var newArrivals = ViewData["NewArrivals"] as List<WebApplication1.Models.Product>;
+    var bestSellers = ViewData["BestSellers"] as List<WebApplication1.Models.Product>;
+}
+
+<style>
+    body {
+    background-color: #f9cfdf !important; 
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* لتوسيط النص أيضًا */
+}
+
+.nav-link i {
+    font-size: 1.5rem; /* تعديل حجم الأيقونة */
+    margin-bottom: 5px; /* مسافة بين الأيقونة والنص */
+}
+
+.nav-item {
+    margin: 0 10px; /* مسافة بين العناصر داخل شريط التنقل */
+}
+.navbar-nav .nav-item {
+    margin-right: 10px; 
+  }
+  .navbar-nav .nav-item:not(:last-child) {
+    margin-right: 15px; 
+  }
+  .navbar-nav .nav-item:nth-child(n+3) {
+    margin-left: 10px; 
+  }
+ 
+.navbar {
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: #ff4081;
+}
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f1b8ba, #fd9abb );
+    color: white;
+}
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.hero p {
+    font-size: 1.2rem;
+}
+.btn-light {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+.btn-light:hover {
+    background-color: #ff4081;
+    color: white;
+}
+.section-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 30px 0;
+    font-weight: bold;
+    color: #000000;
+}
+.card {
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.btn-transparent {
+    background-color: transparent;
+    color: #F5A3B7; /* اللون الافتراضي للنص */
+    border: 2px solid #F5A3B7; /* اللون الافتراضي للحدود */
+    transition: all 0.3s ease; /* تأثير الانتقال */
+  }
+  
+  .btn-transparent:hover {
+    background-color: #F5A3B7; /* تغيير اللون عند التمرير */
+    color: #F5A3B7; /* تغيير لون النص عند التمرير */
+  }
+
+  .card-img {
+    border-radius: 15px 0 0 15px; 
+  }
+  .btn-pink {
+    background-color: #ffbaca; /* اللون الوردي */
+    border-color: #ffbaca; /* تأكيد اللون للحدود */
+}
+
+.btn-pink:hover {
+    background-color: #ffbaca; /* درجة أغمق عند المرور بالفأرة */
+    border-color: #ffbaca; /* تأكيد للحدود عند المرور */
+}
+.icon a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black; /* لون النص */
+    margin: 0 10px; /* مسافة بين الأيقونات */
+}
+
+.icon i {
+    font-size: 1.5rem; /* تكبير الأيقونة */
+    margin-bottom: 5px; /* مسافة بين الأيقونة والنص */
+}
+
+.nav-text {
+    font-size: 0.9rem;
+}
+
+/* إضافة مسافة بين Chat Bot وباقي الأيقونات */
+.chat-bot-icon {
+    margin-left: 30px; /* يمكنك تغييرها حسب الحاجة */
+}
+.eva-text{
+    color: #F5A3B7 !important;
+}
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.hashtag {
+    color:  #FF1493;
+}
+
+.card {
+    border: none;
+}
+
+.card-img-top {
+    border-radius: 10%;
+}
+button:hover {
+    background-color: #FF1493; /* لون أغمق عند المرور */
+    cursor: pointer; /* تغيير المؤشر */
+  }
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('images/banner.jpg');
+    background-size: cover;        /* يغطي كل المساحة */
+    background-repeat: no-repeat; /* ما تتكررش */
+    background-position: center;  /* في النص */
+    padding: 30px 30px;
+    height: 55vh;
+    box-sizing: border-box;
+  }
+  
+
+  .banner-text {
+    max-width: 50%;
+  }
+
+  .banner-text h1 {
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 130px;
+  }
+
+  .banner-text p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 30px;
+    margin-left: 130px;
+  }
+
+  .banner-text button {
+    background: linear-gradient(to right, #f08da6, #f8a8b8);
+    color: white;
+    padding: 8px 90px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background 0.3s ease;
+    margin-left: 130px;
+  }
+
+  .banner-text button:hover {
+    background: linear-gradient(to right, #f47b99, #f595a8);
+  }
+
+  .banner-image img {
+    max-width: 200px;
+    height: auto;
+  }
+
+
+    .banner-text, .banner-image {
+      max-width: 100%;
+    }
+
+    .banner-image img {
+      margin-top: 10px;
+    }
+  
+  
+
+</style>
+
+<section class="banner">
+    <div class="banner-text">
+        <h1>DISCOVER YOUR INNER BEAUTY <br> WITH BLOSSOM GLOW KIT</h1>
+        <p>Great gift for yourself and loved ones</p>
+        <button>Shop Now</button>
+    </div>
+    <div class="banner-image"></div>
+</section>
+
+<!-- New Arrivals -->
+<div class="container">
+    <h2 class="section-title">New Arrivals</h2>
+    <div class="row">
+        @foreach (var product in newArrivals)
+        {
+            <div class="col-md-3">
+                <div class="card p-2">
+                   <img src="@product.ImageUrl" alt="Alternate Text" />
+                    <input type="hidden" value="@product.Id" class="product-id" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">$@product.Price</p>
+                        <button class="btn btn-transparent" onclick="changeColor(this)">
+                            <i class="bi bi-bag"></i> Add to Bag
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<!-- Best Sellers -->
+<div class="container">
+    <h2 class="section-title">Best Sellers</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card p-2">
+                <img src="~/images/cuxziz1odnbfnvxwskehfyojmujq9pv1kfgzlkvh.webp" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">All-Around Safe Block </h5>
+                    <p class="card-text">$32.00</p>
+                    <button class="btn btn-transparent" onclick="changeColor(this)">
+                        <i class="bi bi-bag"></i> Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <img src="~/images/ejcl9ermftbzxldjmsy2z5kejztqp60lktxb9lng (1).webp" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Super Aqua Snail Cream</h5>
+                    <p class="card-text">$32.00</p>
+                    <button class="btn btn-transparent" onclick="changeColor(this)">
+                        <i class="bi bi-bag"></i> Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <img src="~/images/hi8vt2rjk4004pelpsjdvx4ytdmddjhmx7e10lqb.webp" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Clarifying Emulsion</h5>
+                    <p class="card-text">$32.00</p>
+                    <button class="btn btn-transparent" onclick="changeColor(this)">
+                        <i class="bi bi-bag"></i> Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-2">
+                <img src="~/images/zmmg2ec33j925tzulqb5tnk9c0g2rka5iipsisxd.webp" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Dewy Glow Jelly Cream</h5>
+                    <p class="card-text">$32.00</p>
+                    <button class="btn btn-transparent" onclick="changeColor(this)">
+                        <i class="bi bi-bag"></i> Add to Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---->
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card border-0" style="background-color: #f9c5d1;">
+                <div class="row no-gutters">
+                    <div class="col-md-6">
+                        <img src="~/images/whatsapp image 2025-03-22 at 2.06.38 pm.jpeg" class="card-img" alt="Blossom Glow Kit">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Blossom Glow Kit</h5>
+                            <p class="card-text">Reveal your skin's natural glow with our Lotus Glow Kit. Nourishing body and face creams with lotus extract provide deep hydration and rejuvenation.</p>
+                            <button class="btn btn-pink">Shop Now</button>
+                            <button class="btn btn-black btn-link">Explore More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card border-0" style="background-color: #f9c5d1;">
+                <div class="row no-gutters">
+                    <div class="col-md-6 order-md-2">
+                        <img src="~/images/whatsapp image 2025-03-22 at 2.07.45 pm.jpeg" class="card-img" alt="Floral Essence Masks Sets">
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Floral Essence Masks Sets</h5>
+                            <p class="card-text">Indulge in the beauty of nature with our Floral Essence Masks set. Each mask features a unique blend of flower extracts to hydrate and nourish your skin.</p>
+                            <button class="btn btn-pink">Shop Now</button>
+                            <button class="btn btn-black btn-link">Explore More →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+
+<!--On the Blog-->
+<div class="container">
+    <h2 class="section-title">On the Blog</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card p-3">
+                <img src="~/images/vya-naturals-m3l24oeny2c-unsplash.jpg" class="card-img-top" alt="Cracking the Coconut Code">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cracking the Coconut Code</h5>
+                    <p class="card-text">Reveal your skin's natural glow with our Lotus Glow Kit. Nourishing body and face creams</p>
+                    <button class="btn btn-transparent" onclick="changeColor(this)">
+                        <i class="bi bi-bag"></i> Read More
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <img src="~/images/screenshot 2025-05-05 190700.png" class="card-img-top" alt="Bloom Beauty Best of 2023">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-danger">Bloom Beauty Best of 2023</h5>
+                    <p class="card-text">Bloom Beauty Best of 2023 products winners are here. but little steps are made (nightly!)
+                        Nourishing body and face creams
+                    </p>
+                    <button type="button" class="btn btn-dark">Read More</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <img src="~/Images/lume-wellness-_HXI367NQrs-unsplash.jpg" class="card-img-top" alt="7 Skincare Habits to Break Now">
+                <div class="card-body text-center">
+                    <h5 class="card-title">7 Skincare Habits to Break Now</h5>
+                    <p class="card-text">Great skincare is a long game—it doesn’t happen overnight, but little steps  </p>
+                    <button class="btn btn-transparent" onclick="changeColor(this)">
+                        <i class="bi bi-bag"></i> Read More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

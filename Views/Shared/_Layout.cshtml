@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav id="main_nav" class="navbar navbar-expand-lg navbar-light">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a class="navbar-brand h1" href="index.html">
+                    <span class="eva-text h4">Eva</span> <span class="cos h4">cosmetics</span>
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
+                    <div class="flex-fill mx-xl-5 mb-2">
+                        <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Home/index">Shop All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Product/index">Best Sellers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="work.html">Collection</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="pricing.html">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Blog/index">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- أيقونات الحساب، السلة، والبحث -->
+                    <div class="icon align-self-center d-flex">
+                        <a class="nav-link text-center" href="#">
+                            <i class='bx bx-search'></i>
+                            <div class="nav-text">Search</div>
+                        </a>
+                            <a class="nav-link text-center" href="/Account/Login">
+                            <i class='bx bx-user-circle'></i>
+                            <div class="nav-text">Account</div>
+</a>
+                        <a class="nav-link text-center" href="#">
+                            <i class='bx bx-shopping-bag'></i>
+                            <div class="nav-text">Cart</div>
+                        </a>
+                        <!-- أيقونة Chat Bot -->
+                        <a class="nav-link text-center" href="/Chat/index">
+                            <i class='bx bx-message-dots'></i>
+                            <div class="nav-text"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer style="background-color: #222; color: #fff; padding: 60px 0; font-family: Arial, sans-serif;   margin-top: 60px;">
+        <div style="width: 85%; margin: auto; display: flex; justify-content: space-between; flex-wrap: wrap; align-items: flex-start; gap: 40px;">
+            <div style="flex: 1; min-width: 280px;">
+                <h3 style="color: #ff69b4; margin-bottom: 15px; font-size: 20px;">Eva cosmetics</h3>
+                <p style="line-height: 1.8; font-size: 14px;">Discover beauty products with our natural organic beauty line.</p>
+                <p style="line-height: 2; font-size: 14px;">
+                    📞 +380 123 45 67<br>
+                    ✉ bloom@xyz.com<br>
+                    🌍 Kyiv, Ukraine
+                </p>
+            </div>
+            <div style="flex: 1; min-width: 160px;">
+                <h4 style="margin-bottom: 15px; font-size: 16px;">HELP</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2; font-size: 14px;">
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Contact us</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">FAQ</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 160px;">
+                <h4 style="margin-bottom: 15px; font-size: 16px;">MY ACCOUNT</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2; font-size: 14px;">
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Addresses</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Order Status</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Wishlist</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 160px;">
+                <h4 style="margin-bottom: 15px; font-size: 16px;">CUSTOMER CARE</h4>
+                <ul style="list-style: none; padding: 0; line-height: 2; font-size: 14px;">
+                    <li><a href="#" style="color: #fff; text-decoration: none;">About us</a></li>
+                    <li><a href="#" style="color: #fff; text-decoration: none;">Blog</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <h4 style="margin-bottom: 15px; font-size: 16px;">SIGN UP FOR EMAILS</h4>
+                <p style="font-size: 14px;">Stay informed. Subscribe to our newsletter.</p>
+                <input type="email" placeholder="Email" style="padding: 10px; width: 85%; border: none; border-radius: 5px; font-size: 14px;">
+                <button style="padding: 10px; background-color: #ff69b4; color: #fff; border: none; cursor: pointer; margin-top: 10px; border-radius: 5px; font-size: 14px;">Subscribe</button>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; border-top: 1px solid #444; padding-top: 20px;">
+            <p style="font-size: 14px;">&copy; 2023 Bloom Beauty</p>
+            <a href="#" style="color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px;">Privacy Policy</a> |
+            <a href="#" style="color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px;">Terms And Conditions</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

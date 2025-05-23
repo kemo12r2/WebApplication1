@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva Chat Bot</title>
+    <link rel="stylesheet" href="./stely.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bott.js">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8d9e2; /* لون خلفية الصفحة */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex; 
+            height: 100vh; 
+        }
+        .sidebar {
+            width: 250px; 
+            background-color: #fb8bbd; /* لون الشريط الجانبي */
+            padding: 30px; 
+            display: flex; 
+            flex-direction: column; 
+            border-right: 1px solid #ddd; 
+        }
+        .sidebar h4 {
+            color: #fff; 
+            margin-bottom: 20px;
+        }
+        .sidebar .btn {
+            margin-bottom: 10px; 
+            color: #fff; 
+            text-align: left; 
+        }
+        .chat-area {
+            flex-grow: 1; 
+            padding: 20px; 
+            background-color: #fce4e8; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .chat-box {
+            flex-grow: 1; 
+            border: 1px solid #ccc; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            background-color: white; 
+            overflow-y: auto; 
+            height: 70%; /* ارتفاع الدردشة */
+            font-size: 18px; /* زيادة حجم الخط */
+            color: #333; /* لون النص */
+        }
+        .input-group {
+            margin-top: auto; 
+        }
+        .input-group input {
+            border-radius: 20px 0 0 20px; 
+            border: 1px solid #ccc; 
+        }
+        .input-group button {
+            border-radius: 0 20px 20px 0; 
+            background-color: #f06292; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4>Eva Chat Bot</h4>
+        <a href="#" class="btn btn-light">Start new chat</a>
+        <a href="#" class="btn btn-light">All Chat</a>
+        <a href="#" class="btn btn-light">Image Generator</a>
+        <a href="#" class="btn btn-light">All Topics</a>
+        <a href="#" class="btn btn-light">Text to Speech</a>
+        <h5 class="mt-4" style="color: #fff;">History</h5>
+        <a href="#" class="text-light">Why my color was changing?</a><br>
+        <a href="#" class="text-light">Healthy dinner recipes</a><br>
+        <a href="#" class="text-light">Tell me a joke</a><br>
+        <a href="#" class="text-light">Suggest something</a>
+        <div class="mt-auto" style="color: #fff;">
+            <h5>Settings</h5>
+            <a href="#" class="text-light">...</a>
+        </div>
+    </div>
+
+    <!-- Chat area -->
+    <div class="chat-area">
+        <div class="chat-box">
+            <p style="font-weight: bold; font-size: 20px;">What can I help with?</p>
+            <!-- Add chat messages here -->
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Message..." aria-label="Message">
+            <button class="btn" type="button">Send</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
